@@ -1,0 +1,32 @@
+services:
+  api1:
+    image: 'zali/p1-reimbursement-api' 
+    container_name: api1
+    environment: 
+      - DB_URL=jdbc:mysql://34.123.41.7/Business
+      # - EMAIL_URL=http://api2:8587/sendEmail
+    ports:
+      - 8080:8080
+    depends_on:
+      - db
+  
+  api2:
+    image: 'zali/p1-email-api' 
+    container_name: api2
+    environment: 
+      - DB_URL=jdbc:mysql://34.123.41.7/Business
+    ports:
+      - "8587:8587"
+    depends_on:
+      - db
+
+  db:
+    image: mysql
+    container_name: db
+    # command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      - MYSQL_DATABASE=Business
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password! 
+    
