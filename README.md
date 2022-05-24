@@ -38,11 +38,9 @@ The Expense Reimbursement System manages the process of reimbursing employees fo
 ## Features
 
 List of Features
-* Employee reimbursement request submission
-* Employee viewing all their own reimbursements
-* Manager viewing all reimbursements
-* Manager updating reimbursement [Approve, Deny, Reassign]
-* Email sent out to employee automatically upon reimbursement creation or status update 
+* Reimbursement API that managers users, the creation of reimbursements, and status updates 
+* The Reimbursement API also communicates with the Email API notifying it of the status change and requesting for an email to be sent out, using RestTemplate
+* Email API that, upon being requested, sends emails to user of their reimbursement creation / status change
 
 To-do List:
 * User login and session management
